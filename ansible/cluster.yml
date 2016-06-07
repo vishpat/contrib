@@ -92,6 +92,25 @@
   roles:
     - { role: contiv, contiv_role: netplugin, when: networking == 'contiv' }
 
+
+# Install Nuage
+- hosts:
+    - masters
+  sudo: yes
+  roles:
+    - { role: nuage_master, when: networking == 'nuage' }
+  tags: 
+    - network-service-install
+
+# Install Nuage
+- hosts:
+    - nodes 
+  sudo: yes
+  roles:
+    - { role: nuage_node, when: networking == 'nuage' }
+  tags: 
+    - network-service-install
+
 # install runtime dependencies
 - hosts: nodes
   sudo: yes

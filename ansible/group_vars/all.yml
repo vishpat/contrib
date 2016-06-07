@@ -47,7 +47,7 @@ kube_master_api_port: 443
 kube_service_addresses: 10.254.0.0/16
 
 # Network implementation (flannel|opencontrail|contiv)
-networking: flannel
+networking: nuage 
 
 # External network
 # opencontrail_public_subnet: 10.1.4.0/24
@@ -57,23 +57,23 @@ networking: flannel
 
 # Data interface
 # opencontrail_interface: eth1
-
-# Flannel internal network (optional). When flannel is used, it will assign IP
-# addresses from this range to individual pods.
-# This network must be unused in your network infrastructure!
-flannel_subnet: 172.16.0.0
-
-# Flannel internal network total size (optional). This is the prefix of the
-# entire flannel overlay network.  So the entirety of 172.16.0.0/12 must be
-# unused in your environment.
-flannel_prefix: 12
-
-# Flannel internal network (optional). This is the size allocation that flannel
-# will give to each node on your network.  With these defaults you should have
-# room for 4096 nodes with 254 pods per node.
-flannel_host_prefix: 24
-
-# Create a default Contiv network for providing connectivity among pods
+#
+## Flannel internal network (optional). When flannel is used, it will assign IP
+## addresses from this range to individual pods.
+## This network must be unused in your network infrastructure!
+#flannel_subnet: 172.16.0.0
+#
+## Flannel internal network total size (optional). This is the prefix of the
+## entire flannel overlay network.  So the entirety of 172.16.0.0/12 must be
+## unused in your environment.
+#flannel_prefix: 12
+#
+## Flannel internal network (optional). This is the size allocation that flannel
+## will give to each node on your network.  With these defaults you should have
+## room for 4096 nodes with 254 pods per node.
+#flannel_host_prefix: 24
+#
+## Create a default Contiv network for providing connectivity among pods
 # networking: contiv must be set to use Contiv networking
 #contiv_default_network: true
 #contiv_default_subnet: 172.16.0.0/16
