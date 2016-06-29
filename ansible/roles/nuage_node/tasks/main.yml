@@ -24,4 +24,8 @@
 
 - name: Set the vsp-k8s.yaml 
   become: yes
-  template: src=vsp-k8s.j2 dest={{ vsp_k8s_yaml }} owner=root mode=0644 
+  template: src=vsp-k8s.j2 dest={{ vsp_k8s_yaml }} owner=root mode=0644
+
+- name: Restart vrs
+  become: yes
+  service: name=openvswitch state=restarted
