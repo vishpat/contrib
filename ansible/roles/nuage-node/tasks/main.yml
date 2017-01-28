@@ -31,6 +31,10 @@
   become: yes
   lineinfile: dest={{ vrs_config }} regexp=^STANDBY_CONTROLLER line='STANDBY_CONTROLLER={{ vsc_standby_ip }}'
   when: vsc_standby_ip is defined
+  
+- name: Set the K8S service IP
+  become: yes
+  lineinfile: dest={{ vrs_config }} regexp=^K8S_SERVICE_IPV4_SUBNET line='K8S_SERVICE_IPV4_SUBNET={{ kube_service_addresses }}'
 
 - name: Install plugin rpm
   become: yes
